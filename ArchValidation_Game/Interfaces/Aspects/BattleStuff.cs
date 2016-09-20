@@ -9,7 +9,7 @@ using PostSharp.Reflection;
 namespace ArchValidation_Game.Interfaces.Aspects {
     [ Serializable ]
     [ AttributeUsage(AttributeTargets.Class) ]
-    [ MulticastAttributeUsage(MulticastTargets.Class) ]
+    [ MulticastAttributeUsage(MulticastTargets.Class, Inheritance = MulticastInheritance.Multicast) ]
     public class BattleStuffAttribute : TypeLevelAspect {
         private readonly List<Type> types;
 
@@ -22,9 +22,7 @@ namespace ArchValidation_Game.Interfaces.Aspects {
         }
 
         public override bool CompileTimeValidate(Type type) {
-            var customAttributesOfType = ReflectionSearch.GetCustomAttributesOfType(type);
             var notAllowed = type.GetInterfaces().Except(types).Select(i => i.Name).ToList();
-
 
             if (notAllowed.Any()) {
                 var messageLocation = MessageLocation.Of(type.GetConstructors().First());

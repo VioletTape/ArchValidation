@@ -17,6 +17,7 @@ namespace ArchValidation_Game.Interfaces {
 
     public class Wand : IWeapon {}
 
+    [BattleStuff]
     public class Sword : IWeapon {
         public SwordType Type { get; }
 
@@ -40,8 +41,8 @@ namespace ArchValidation_Game.Interfaces {
      * - Add interface
     */
 
-    [ BattleStuff ]
-    public class CaptAmericasShield : IShield, IWeapon, IPotion {
+    [BattleStuff]
+    public class CaptAmericasShield : IShield, IWeapon {
         public CaptAmericasShield() {}
     }
 
