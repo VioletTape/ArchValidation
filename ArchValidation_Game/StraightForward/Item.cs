@@ -3,11 +3,30 @@
 
     public class Potion : Item {}
 
-    public class Weapon : Item {}
+    public class Weapon : Item {
+        public int Damage { get; protected set; }
 
-    public class Shield : Item {}
+        public override string ToString() {
+            return Damage.ToString();
+        }
+    }
 
-    public class Wear : Item {}
+    public class Shield : Item {
+        public int Armor { get; protected set; }
+
+        public override string ToString() {
+            return Armor.ToString();
+        }
+    }
+
+    public class Wear : Item {
+        public int Protection { get; protected set; }
+
+        public override string ToString()
+        {
+            return Protection.ToString();
+        }
+    }
 
     public class Bow : Weapon {}
 
@@ -17,7 +36,6 @@
 
     public class Sword : Weapon {
         public SwordType Type { get; }
-        public int Damage { get; protected set; }
 
         public Sword(SwordType swordType) {
             Type = swordType;
@@ -41,20 +59,21 @@
     */
     public class CaptAmericasShield : Shield {
         public int Damage { get; } = 300;
-        public int Armor { get; } = 500;        
 
-        public CaptAmericasShield() {}
+        public CaptAmericasShield() {
+            Armor = 500;
+        }
     }
         
-    public class Game {
-        
-    }
-
     public class Hero {
         public Weapon Weapon { get; set; }   
         public Shield Shield { get; set; }
 
-        public Wear Protection { get; set; }   
+        public Wear Protection { get; set; }
+
+        public string GetStats() {
+            return $"Stats for hero: \n\tWeapon:{Weapon}\n\tShield:{Shield}\n\tWear:{Protection}";
+        }
     }
     
 }
