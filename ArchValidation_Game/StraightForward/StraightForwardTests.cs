@@ -2,7 +2,7 @@
 using NUnit.Framework;
 
 namespace ArchValidation_Game.StraightForward {
-    [TestFixture]
+    [ TestFixture ]
     public class StraightForwardTests {
         [ Test ]
         public void Test01() {
