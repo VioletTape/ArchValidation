@@ -52,6 +52,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Interfaces\Class1.cs" />
     <Compile Include="StraightForward\Item.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StraightForward\StraightForwardTests.cs" />
