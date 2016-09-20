@@ -1,4 +1,6 @@
-﻿namespace ArchValidation_Game.Interfaces {
+﻿using ArchValidation_Game.Interfaces.Aspects;
+
+namespace ArchValidation_Game.Interfaces {
     public interface IItem {}
 
     public interface IPotion : IItem {}
@@ -38,7 +40,11 @@
      * - Add interface
     */
 
-    public class CaptAmericasShield : IShield, IWeapon {}
+    [ BattleStuff ]
+    public class CaptAmericasShield : IShield, IWeapon, IPotion {
+        public CaptAmericasShield() {}
+    }
+
 
     public class Hero {
         public IWeapon Weapon { get; set; }
