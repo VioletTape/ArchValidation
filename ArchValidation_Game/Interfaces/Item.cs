@@ -1,4 +1,7 @@
-﻿using ArchValidation_Game.Interfaces.Aspects;
+﻿
+using System;
+using ArchValidation_Game.Interfaces.Aspects;
+using PostSharp.Patterns.Model;
 
 namespace ArchValidation_Game.Interfaces {
     public interface IItem {}
@@ -17,6 +20,7 @@ namespace ArchValidation_Game.Interfaces {
 
     public class Wand : IWeapon {}
 
+
     public class Sword : IWeapon {
         public SwordType Type { get; }
 
@@ -25,26 +29,28 @@ namespace ArchValidation_Game.Interfaces {
         }
     }
 
+    public class Excalibur : Sword {
+        public Excalibur(SwordType swordType) : base(swordType) {}
+    }
+
     public enum SwordType {
         OneHanded,
         Bastard,
         TwoHanded
     }
 
-    public class Excalibur : Sword {
-        public Excalibur(SwordType swordType) : base(swordType) {}
-    }
-
     /*
      * What to do next, if I want to use Shield as Weapon? 
      * - Add interface
     */
-
+    [BattleStuff]
     public class CaptAmericasShield : IShield, IWeapon {
         public CaptAmericasShield() {}
     }
 
 
+
+    [NotifyPropertyChanged]
     public class Hero {
         public IWeapon Weapon { get; set; }
         public IShield Shield { get; set; }
