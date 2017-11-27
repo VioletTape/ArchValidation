@@ -2,28 +2,24 @@
 using NUnit.Framework;
 
 namespace ArchValidation_Game.Interfaces {
-    [ TestFixture ]
+    [TestFixture]
     public class StraightForwardTests {
-        [ Test ]
+        [Test]
         public void Test01() {
-            var hero = new Hero {
-                           Weapon = new CaptAmericasShield()
-                       };
+            var     hero = new Hero {Weapon = new CaptAmericasShield()};
 
             hero.GetStats()
-                 .Should()
-                 .Be("Stats for hero: \n\tWeapon:9000\n\tShield:\n\tWear:");
+                .Should()
+                .Be("Stats for hero: \n\tWeapon:5000\n\tShield:\n\tWear:");
         }
 
-        [ Test ]
+        [Test]
         public void Test02() {
-            var hero = new Hero {
-                           Shield = new CaptAmericasShield()
-                       };
+            var     hero = new Hero {Shield = new CaptAmericasShield()};
 
             hero.GetStats()
-                 .Should()
-                 .Be("Stats for hero: \n\tWeapon:9000\n\tShield:\n\tWear:");
+                .Should()
+                .Be("Stats for hero: \n\tWeapon:\n\tShield:9000\n\tWear:");
         }
     }
 }

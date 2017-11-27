@@ -6,19 +6,31 @@ using PostSharp.Patterns.Model;
 namespace ArchValidation_Game.Interfaces {
     public interface IItem {}
 
+
     public interface IPotion : IItem {}
 
-    public interface IWeapon : IItem {}
+    public interface IWeapon : IItem {
+        decimal Damage { get; set; }
+    }
 
-    public interface IShield : IItem {}
-        
+    public interface IShield : IItem {
+        decimal Defence { get; set; }
+    }
+
     public interface IWear : IItem {}
 
-    public class Bow : IWeapon {}
 
-    public class Dagger : IWeapon {}
+    public  class Bow : IWeapon {
+        public decimal Damage { get; set; }
+    }
 
-    public class Wand : IWeapon {}
+    public  class Dagger : IWeapon {
+        public decimal Damage { get; set; }
+    }
+
+    public  class Wand : IWeapon {
+        public decimal Damage { get; set; }
+    }
 
 
     public class Sword : IWeapon {
@@ -27,10 +39,14 @@ namespace ArchValidation_Game.Interfaces {
         public Sword(SwordType swordType) {
             Type = swordType;
         }
+
+        public decimal Damage { get; set; }
     }
 
     public class Excalibur : Sword {
-        public Excalibur(SwordType swordType) : base(swordType) {}
+        public Excalibur(SwordType swordType) : base(swordType) {
+            Damage = 9000;
+        }
     }
 
     public enum SwordType {
@@ -41,11 +57,17 @@ namespace ArchValidation_Game.Interfaces {
 
     /*
      * What to do next, if I want to use Shield as Weapon? 
-     * - Add interface
+     * - Add non suitable interface (IPotion)
     */
     [BattleStuff]
     public class CaptAmericasShield : IShield, IWeapon {
-        public CaptAmericasShield() {}
+        public CaptAmericasShield() {
+            Damage = 5000;
+            Defence = 9000;
+        }
+
+        public decimal Defence { get; set; }
+        public decimal Damage { get; set; }
     }
 
 
@@ -58,7 +80,7 @@ namespace ArchValidation_Game.Interfaces {
         public IWear Protection { get; set; }
 
         public string GetStats() {
-            return $"Stats for hero: \n\tWeapon:{Weapon}\n\tShield:{Shield}\n\tWear:{Protection}";
+            return $"Stats for hero: \n\tWeapon:{Weapon?.Damage}\n\tShield:{Shield?.Defence}\n\tWear:{Protection}";
         }
     }
 }

@@ -1,4 +1,6 @@
-﻿namespace ArchValidation_Game.StraightForward {
+﻿using ArchValidation_Game.Interfaces.Aspects;
+
+namespace ArchValidation_Game.StraightForward {
     public class Item {}
 
     public class Potion : Item {}
@@ -28,11 +30,11 @@
         }
     }
 
-    public class Bow : Weapon {}
+    public  class Bow : Weapon {}
 
-    public class Dagger : Weapon {}
+    public  class Dagger : Weapon {}
 
-    public class Wand : Weapon {}
+    public  class Wand : Weapon {}
 
     public class Sword : Weapon {
         public SwordType Type { get; }
