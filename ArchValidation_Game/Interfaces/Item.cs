@@ -1,13 +1,11 @@
-﻿
-using System;
-using ArchValidation_Game.Interfaces.Aspects;
+﻿using ArchValidation_Game.Interfaces.Aspects;
 using PostSharp.Patterns.Model;
 
 namespace ArchValidation_Game.Interfaces {
-    public interface IItem {}
+    public interface IItem { }
 
 
-    public interface IPotion : IItem {}
+    public interface IPotion : IItem { }
 
     public interface IWeapon : IItem {
         decimal Damage { get; set; }
@@ -17,18 +15,18 @@ namespace ArchValidation_Game.Interfaces {
         decimal Defence { get; set; }
     }
 
-    public interface IWear : IItem {}
+    public interface IWear : IItem { }
 
 
-    public  class Bow : IWeapon {
+    public class Bow : IWeapon {
         public decimal Damage { get; set; }
     }
 
-    public  class Dagger : IWeapon {
+    public class Dagger : IWeapon {
         public decimal Damage { get; set; }
     }
 
-    public  class Wand : IWeapon {
+    public class Wand : IWeapon {
         public decimal Damage { get; set; }
     }
 
@@ -69,7 +67,6 @@ namespace ArchValidation_Game.Interfaces {
         public decimal Defence { get; set; }
         public decimal Damage { get; set; }
     }
-
 
 
     [NotifyPropertyChanged]

@@ -1,9 +1,7 @@
-﻿using ArchValidation_Game.Interfaces.Aspects;
+﻿namespace ArchValidation_Game.StraightForward {
+    public class Item { }
 
-namespace ArchValidation_Game.StraightForward {
-    public class Item {}
-
-    public class Potion : Item {}
+    public class Potion : Item { }
 
     public class Weapon : Item {
         public int Damage { get; protected set; }
@@ -24,17 +22,16 @@ namespace ArchValidation_Game.StraightForward {
     public class Wear : Item {
         public int Protection { get; protected set; }
 
-        public override string ToString()
-        {
+        public override string ToString() {
             return Protection.ToString();
         }
     }
 
-    public  class Bow : Weapon {}
+    public class Bow : Weapon { }
 
-    public  class Dagger : Weapon {}
+    public class Dagger : Weapon { }
 
-    public  class Wand : Weapon {}
+    public class Wand : Weapon { }
 
     public class Sword : Weapon {
         public SwordType Type { get; }
@@ -66,9 +63,9 @@ namespace ArchValidation_Game.StraightForward {
             Armor = 500;
         }
     }
-        
+
     public class Hero {
-        public Weapon Weapon { get; set; }   
+        public Weapon Weapon { get; set; }
         public Shield Shield { get; set; }
 
         public Wear Protection { get; set; }
@@ -77,5 +74,4 @@ namespace ArchValidation_Game.StraightForward {
             return $"Stats for hero: \n\tWeapon:{Weapon}\n\tShield:{Shield}\n\tWear:{Protection}";
         }
     }
-    
 }

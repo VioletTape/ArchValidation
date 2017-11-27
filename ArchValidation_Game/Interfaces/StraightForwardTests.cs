@@ -6,7 +6,7 @@ namespace ArchValidation_Game.Interfaces {
     public class StraightForwardTests {
         [Test]
         public void Test01() {
-            var     hero = new Hero {Weapon = new CaptAmericasShield()};
+            var hero = new Hero {Weapon = new CaptAmericasShield()};
 
             hero.GetStats()
                 .Should()
@@ -15,7 +15,7 @@ namespace ArchValidation_Game.Interfaces {
 
         [Test]
         public void Test02() {
-            var     hero = new Hero {Shield = new CaptAmericasShield()};
+            var hero = new Hero {Shield = new CaptAmericasShield()};
 
             hero.GetStats()
                 .Should()
