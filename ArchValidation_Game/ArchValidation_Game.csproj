@@ -67,6 +67,7 @@
     <Compile Include="Interfaces\Aspects\BattleStuff.cs" />
     <Compile Include="Interfaces\Item.cs" />
     <Compile Include="Interfaces\StraightForwardTests.cs" />
+    <Compile Include="Static\NoStaticExample.cs" />
     <Compile Include="StraightForward\Item.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StraightForward\StraightForwardTests.cs" />

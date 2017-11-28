@@ -20,6 +20,7 @@ namespace ArchValidation_Game.Interfaces.Aspects {
                                    };
         }
 
+
         public override bool CompileTimeValidate(Type type) {
             var notAllowed = type.GetInterfaces()
                                  .Except(types)
