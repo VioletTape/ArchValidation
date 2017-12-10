@@ -5,13 +5,10 @@ using System.Runtime.CompilerServices;
 using PostSharp.Aspects;
 using PostSharp.Extensibility;
 
-namespace ArchValidation_Game.Static {
-
-
+namespace ArchValidation.NoStaticUsageChecks {
     [Serializable]
-    [AttributeUsage(AttributeTargets.Class)]
-    [MulticastAttributeUsage(MulticastTargets.Class,
-        Inheritance = MulticastInheritance.Multicast)]
+    [AttributeUsage(AttributeTargets.Class | AttributeTargets.Assembly)]
+    [MulticastAttributeUsage(MulticastTargets.Class, Inheritance = MulticastInheritance.Multicast)]
     public class NoStatic : TypeLevelAspect {
         public override bool CompileTimeValidate(Type type) {
             var isStatic = type.IsAbstract &&
@@ -27,12 +24,9 @@ namespace ArchValidation_Game.Static {
 
             var hasStaticMethods = methodInfos.Except(extensionMethods).Any();
 
-            if (isStatic && extensionMethods.Any() && !hasStaticMethods && !hasStaticProperties) {
-                return false;
-            }
+            if (isStatic && extensionMethods.Any() && !hasStaticMethods && !hasStaticProperties) return false;
 
-            if (isStatic || hasStaticProperties || hasStaticMethods)
-            {
+            if (isStatic ||hasStaticProperties ||hasStaticMethods) {
                 var messageLocation = MessageLocation.Of(type);
                 var messageText = $"Looks like you are increasing chaos on a project using static modificator";
                 var message = new Message(messageLocation, SeverityType.Error, "f001", messageText, "", "file", null);
@@ -41,22 +35,6 @@ namespace ArchValidation_Game.Static {
             }
 
             return base.CompileTimeValidate(type);
-        }
-    }
-
-    [NoStatic]
-    public  class MyUglyEnterprise {
-        public static readonly string Greetings = "Hello world!";
-
-        public  int Prop { get; set; }
-
-        private static void Foo() { }
-    }
-
-    [NoStatic]
-    public static class StringExtension {
-        public static bool IsEmpty(this string s) {
-            return true;
         }
     }
 }

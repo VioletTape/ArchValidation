@@ -1,9 +1,9 @@
 ﻿using FluentAssertions;
 using NUnit.Framework;
 
-namespace ArchValidation_Game.StraightForward {
+namespace ArchValidation.ClassInheritance {
     [TestFixture]
-    public class StraightForwardTests {
+    public class TestsForHero {
         [Test]
         public void Test01() {
             var hero = new Hero {Weapon = new Excalibur(SwordType.OneHanded)};

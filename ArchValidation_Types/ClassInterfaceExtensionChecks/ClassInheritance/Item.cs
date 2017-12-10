@@ -1,4 +1,4 @@
-﻿namespace ArchValidation_Game.StraightForward {
+﻿namespace ArchValidation.ClassInheritance {
     public class Item { }
 
     public class Potion : Item { }

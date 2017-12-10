@@ -4,7 +4,7 @@ using System.Linq;
 using PostSharp.Aspects;
 using PostSharp.Extensibility;
 
-namespace ArchValidation_Game.Interfaces.Aspects {
+namespace ArchValidation.ClassInterfaceExtensionChecks.Aspects {
     [Serializable]
     [AttributeUsage(AttributeTargets.Class)]
     [MulticastAttributeUsage(MulticastTargets.Class,

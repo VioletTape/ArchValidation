@@ -1,7 +1,7 @@
-﻿using ArchValidation_Game.Interfaces.Aspects;
+﻿using ArchValidation.ClassInterfaceExtensionChecks.Aspects;
 using PostSharp.Patterns.Model;
 
-namespace ArchValidation_Game.Interfaces {
+namespace ArchValidation.ClassInterfaceExtensionChecks {
     public interface IItem { }
 
 

@@ -1,7 +1,7 @@
 ﻿using FluentAssertions;
 using NUnit.Framework;
 
-namespace ArchValidation_Game.Interfaces {
+namespace ArchValidation.ClassInterfaceExtensionChecks {
     [TestFixture]
     public class StraightForwardTests {
         [Test]
