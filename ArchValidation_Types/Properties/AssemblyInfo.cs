@@ -2,6 +2,7 @@
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using ArchValidation.NHibernate;
+using ArchValidation.NHibernate.Aspect;
 using ArchValidation.NoStaticUsageChecks;
 using PostSharp.Extensibility;
 
@@ -40,4 +41,4 @@ using PostSharp.Extensibility;
 
 // It is possible to use * as wildcard or start the pattern string from regex:
 [assembly: NoStatic(AttributeTargetTypes = "ArchValidation.NoStaticUsageChecks.*")]
-[assembly: NoExplicitOverride(AttributeTargetTypes = "ArchValidation.NHibernate.*")]
+[assembly: NoExplicitOverride(AttributeTargetTypes = "ArchValidation.NHibernate.Entities.*")]

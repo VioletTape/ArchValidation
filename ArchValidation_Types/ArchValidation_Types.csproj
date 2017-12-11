@@ -76,7 +76,8 @@
     <Compile Include="ClassInterfaceExtensionChecks\Aspects\BattleStuff.cs" />
     <Compile Include="ClassInterfaceExtensionChecks\Item.cs" />
     <Compile Include="ClassInterfaceExtensionChecks\StraightForwardTests.cs" />
-    <Compile Include="NHibernate\Class1.cs" />
+    <Compile Include="NHibernate\Entities\Entity.cs" />
+    <Compile Include="NHibernate\Aspect\NoExplicitOverride.cs" />
     <Compile Include="NoStaticUsageChecks\NoStatic.cs" />
     <Compile Include="NoStaticUsageChecks\NoStaticExample.cs" />
     <Compile Include="ClassInterfaceExtensionChecks\ClassInheritance\Item.cs" />
