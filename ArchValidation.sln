@@ -23,6 +23,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceLayer", "ServiceLaye
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArchValidation_Types", "ArchValidation_Types\ArchValidation_Types.csproj", "{471CFAF4-426C-4FBA-B7D3-1198FE0BEDB2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DomainB", "DomainB\DomainB.csproj", "{38DED6B1-B52D-40C4-A0C5-64355D4963E6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -54,6 +56,12 @@ Global
 		{471CFAF4-426C-4FBA-B7D3-1198FE0BEDB2}.GatedIn|Any CPU.Build.0 = GatedIn|Any CPU
 		{471CFAF4-426C-4FBA-B7D3-1198FE0BEDB2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{471CFAF4-426C-4FBA-B7D3-1198FE0BEDB2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{38DED6B1-B52D-40C4-A0C5-64355D4963E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{38DED6B1-B52D-40C4-A0C5-64355D4963E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{38DED6B1-B52D-40C4-A0C5-64355D4963E6}.GatedIn|Any CPU.ActiveCfg = Release|Any CPU
+		{38DED6B1-B52D-40C4-A0C5-64355D4963E6}.GatedIn|Any CPU.Build.0 = Release|Any CPU
+		{38DED6B1-B52D-40C4-A0C5-64355D4963E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{38DED6B1-B52D-40C4-A0C5-64355D4963E6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -63,6 +71,7 @@ Global
 		{F1E3D080-0E5A-4D6C-B073-F924AF95E2B6} = {132F32AB-CA5B-44F4-8390-74B380DD05F5}
 		{4BC76056-0EF1-4539-B4B2-8C05356F1EE7} = {132F32AB-CA5B-44F4-8390-74B380DD05F5}
 		{471CFAF4-426C-4FBA-B7D3-1198FE0BEDB2} = {0CF29B9F-591E-47ED-A96C-D40218FCF7DE}
+		{38DED6B1-B52D-40C4-A0C5-64355D4963E6} = {E5087BB8-94E4-47B9-AF0D-836EA2D07A62}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {62BAE81A-8764-41DF-B6AE-55AFD670DA3B}
