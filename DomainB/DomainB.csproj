@@ -47,9 +47,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Aspects\NoExplicitInstantiaionPolicy.cs" />
     <Compile Include="Aspects\ServiceLocatorPolicy.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ServicesA\ServiceLocator.cs" />
+    <Compile Include="ServicesB\IMyService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
