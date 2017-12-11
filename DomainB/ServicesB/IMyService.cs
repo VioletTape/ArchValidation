@@ -1,26 +1,39 @@
 ﻿using DomainB.Aspects;
 
 namespace DomainB.ServicesB {
-    public class MyService : IMyService
-    {
-        public void Boo() { }
-    }
-
+    /*
+     * Validation aspect [NoExplicitInstantiaionPolicy] checks,
+     * that classes implementing that interface won't be
+     * instantiated explicitly
+     */
     [NoExplicitInstantiaionPolicy]
     public interface IMyService
     {
         void Boo();
     }
 
-    public class MySuperService
+    public class MyService : IMyService
+    {
+        public void Boo() { }
+    }
+
+    public class MyConsumingService
     {
         public void Foo(MyService myService){
-//            var service = new MyService(); // uncomment for error
+            /*
+             * Uncomment folling code to see [NoExplicitInstantiaionPolicy]
+             * in action
+             */
+//            var service = new MyService(); 
             myService.Boo();
         }
 
         public void Foo2(MyService myService){
-//            var service = new MyService(); // uncomment for error
+            /*
+             * Uncomment folling code to see [NoExplicitInstantiaionPolicy]
+             * in action
+             */
+//            var service = new MyService(); 
             myService.Boo();
         }
     }

@@ -6,6 +6,12 @@ using PostSharp.Extensibility;
 using PostSharp.Reflection;
 
 namespace DomainB.Aspects {
+/*
+ * Set of validation aspects that prevent usage of IoC/DI as
+ * ServiceLocator anti-pattern.
+ * ServiceLocator can't be passed or called directly outside 
+ * allowed places. 
+ */
     [MulticastAttributeUsage(MulticastTargets.Class, Inheritance = MulticastInheritance.Strict)]
     public class ServiceLocatorUsagePolicy : ReferentialConstraint {
         public override void ValidateCode(object target, Assembly assembly) {

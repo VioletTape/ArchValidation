@@ -8,8 +8,6 @@ namespace DomainA {
  * No one can implement interface in other projects
  */
 
-
-
     //
     // Payment strategise should be implemented within
     // the same project, but other project should be able 

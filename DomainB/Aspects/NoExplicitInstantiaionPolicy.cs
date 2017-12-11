@@ -5,7 +5,13 @@ using PostSharp.Extensibility;
 using PostSharp.Reflection;
 
 namespace DomainB.Aspects {
-    [MulticastAttributeUsage(MulticastTargets.Interface, Inheritance = MulticastInheritance.Multicast)]
+/*
+ * Validation aspect prevent direct instantiation of any classes
+ * that was instrumented. Was developed with IoC/DI frameworks in
+ * mind, to force proper usage of IoC/DI.
+ */
+    [MulticastAttributeUsage(MulticastTargets.Interface
+        , Inheritance = MulticastInheritance.Multicast)]
     public class NoExplicitInstantiaionPolicy : ReferentialConstraint
     {
         public override void ValidateCode(object target, Assembly assembly)
@@ -15,14 +21,20 @@ namespace DomainB.Aspects {
 
             foreach (var usage in usages)
             {
-                var constructorInfos = usage.DerivedType.GetConstructors(BindingFlags.Instance | BindingFlags.Public);
+                var constructorInfos = usage.DerivedType
+                                            .GetConstructors(BindingFlags.Instance 
+                                                             | BindingFlags.Public);
 
                 foreach (var ctr in constructorInfos)
                 {
                     var illeagalUsage = ReflectionSearch.GetMethodsUsingDeclaration(ctr);
 
                     foreach (var usageRefs in illeagalUsage)
-                        Message.Write(usageRefs.UsingMethod, SeverityType.Error, "re001", "There should be no explicit instantiations for {0}", usageRefs.UsingMethod.DeclaringType);
+                        Message.Write(usageRefs.UsingMethod
+                                      , SeverityType.Error
+                                      , "re001"
+                                      , "There should be no explicit instantiations for {0}"
+                                      , usageRefs.UsingMethod.DeclaringType);
                 }
             }
 

@@ -11,7 +11,7 @@ namespace DomainA {
          * Applying [Internal] to the constructor, makes it internal within
          * assembly. Technically it's available for 3rd party elements, that
          * requires public ctor/method/property, but we don't want to expose it
-         */
+         */ 
         [Internal]
         public MyServiceForIoCUsage(string name) {
             Name = name;

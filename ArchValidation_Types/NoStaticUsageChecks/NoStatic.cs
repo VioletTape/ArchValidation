@@ -14,7 +14,9 @@ namespace ArchValidation.NoStaticUsageChecks {
             var isStatic = type.IsAbstract &&
                            type.IsSealed;
 
-            var hasStaticProperties = type.GetProperties(BindingFlags.Static | BindingFlags.Public).Any();
+            var hasStaticProperties = type
+                                      .GetProperties(BindingFlags.Static | BindingFlags.Public)
+                                      .Any();
 
             var methodInfos = type.GetMethods(BindingFlags.Static | BindingFlags.Public);
 
@@ -24,16 +26,19 @@ namespace ArchValidation.NoStaticUsageChecks {
 
             var hasStaticMethods = methodInfos.Except(extensionMethods).Any();
 
-            if (isStatic && extensionMethods.Any() && !hasStaticMethods && !hasStaticProperties) return false;
+            if (isStatic && extensionMethods.Any() && !hasStaticMethods && !hasStaticProperties)
+                return false;
 
             if (isStatic ||hasStaticProperties ||hasStaticMethods) {
-                var messageLocation = MessageLocation.Of(type);
-                var messageText = $"Looks like you are increasing chaos on a project using static modificator";
-                var message = new Message(messageLocation, SeverityType.Error, "f001", messageText, "", "file", null);
-                Message.Write(message);
+                var location = MessageLocation.Of(type);
+                var msg = "Looks like you are increasing chaos on a project using static modificator";
+
+                Message.Write(location
+                              , SeverityType.Error
+                              , "f001"
+                              , msg);
                 return false;
             }
-
             return base.CompileTimeValidate(type);
         }
     }
