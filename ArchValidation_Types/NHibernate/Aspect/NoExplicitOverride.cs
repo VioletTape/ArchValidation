@@ -13,6 +13,11 @@ namespace ArchValidation.NHibernate.Aspect {
  * 1) If use ScalarConstraint it will check overrides only in assembly where
  *    attribute was applied. For instance, it will not catch override in
  *    other projects.
+ *      -   For the implementation remove Assembly parameter in the ValidationCode
+ *          method.
+ *      -   The second part resides in the project Service. In case of
+ *          ScalarConstraint in should not be detected. Make sure that you
+ *          uncommented those code snippet. 
  * 2) To make life easier in a sense of discoverability in other projects,
  *    there is Inheritance property setted to Multicast. 
  */
@@ -43,7 +48,7 @@ namespace ArchValidation.NHibernate.Aspect {
                 if (names.Any()) {
                     var violations = propertyInfos.Where(p => names.Contains(p.Name)).Select(p => p).ToList();
                     foreach (var vp in violations) {
-                        Message.Write(vp // location of violation
+                        Message.Write(vp // location of violation in code
                                       , SeverityType.Error
                                       , "vir001"
                               , $"Property {vp.Name} declared in {vp.DeclaringType} should override base property.");
@@ -52,11 +57,14 @@ namespace ArchValidation.NHibernate.Aspect {
             }
         }
 
+        // method extracted for the sake of readability 
         private bool IsVirtual(PropertyInfo property) {
             return property.GetMethod != null && property.GetMethod.IsVirtual
                    || property.SetMethod != null && property.SetMethod.IsVirtual;
         }
     }
 
+    // for the example with virtual properties to illustrate how 
+    // it might looks in production code
     public class NHibernate { }
 }

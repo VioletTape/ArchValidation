@@ -1,6 +1,7 @@
 ﻿using FluentAssertions;
 using NUnit.Framework;
 using PostSharp.Constraints;
+using PostSharp.Extensibility;
 using StructureMap;
 
 namespace DomainA {
@@ -12,7 +13,7 @@ namespace DomainA {
          * assembly. Technically it's available for 3rd party elements, that
          * requires public ctor/method/property, but we don't want to expose it
          */ 
-        [Internal]
+        [Internal(Severity = SeverityType.Error)]
         public MyServiceForIoCUsage(string name) {
             Name = name;
         }

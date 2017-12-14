@@ -4,11 +4,11 @@
      * to the MyUglyEnterprise class and see what happens
      */
     public class MyUglyEnterprise {
-        public  string Greetings = "Hello world!";
+        public static string Greetings = "Hello world!";
 
-        public int Prop { get; set; }
+        public  int Prop { get; set; }
         
-        private static void Foo() { }
+        private  void Foo() { }
     }
     
 /*

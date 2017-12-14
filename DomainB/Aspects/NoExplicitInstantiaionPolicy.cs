@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Reflection;
+using PostSharp.Aspects;
 using PostSharp.Constraints;
 using PostSharp.Extensibility;
 using PostSharp.Reflection;
@@ -39,6 +40,22 @@ namespace DomainB.Aspects {
             }
 
             base.ValidateCode(target, assembly);
+        }
+    }
+
+    public class MyConstraint : ReferentialConstraint {
+        public override void ValidateCode(object target, Assembly assembly) {
+            base.ValidateCode(target, assembly);
+        }
+
+        public override bool ValidateConstraint(object target) {
+            return base.ValidateConstraint(target);
+        }
+    }
+
+    public class TypeLevelConstraint : TypeLevelAspect {
+        public override bool CompileTimeValidate(Type type) {
+            return base.CompileTimeValidate(type);
         }
     }
 }

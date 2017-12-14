@@ -13,9 +13,9 @@ namespace ServiceLayer {
      * You should see Error or Warning, depening of severity type provided
      * for [InternalImplement]
      */
-    //    public class SomeLocalReimplementation : IPaymentStrategy {
-    //        public decimal Calculate() {
-    //            return 100;
-    //        }
-    //    }
+//        public class SomeLocalReimplementation : IPaymentStrategy {
+//            public decimal Calculate() {
+//                return 100;
+//            }
+//        }
 }

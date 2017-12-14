@@ -38,4 +38,6 @@ using PostSharp.Extensibility;
 [assembly: AssemblyFileVersion("1.0.0.0")]
 
 // It is possible to use * as wildcard or start the pattern string from regex:
-[assembly: NamingConvention("*Adapter", AttributeTargetTypes = "ServiceLayer.Adapter.*", Severity = SeverityType.Error)]
+[assembly: NamingConvention("*Adapter"
+    , AttributeTargetTypes = "ServiceLayer.Adapter.*"
+    , Severity = SeverityType.Error)]

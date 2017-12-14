@@ -6,6 +6,13 @@ using PostSharp.Aspects;
 using PostSharp.Extensibility;
 
 namespace ArchValidation.NoStaticUsageChecks {
+    /*
+     * This constraint check that public/internal class/property/method
+     * not declared with static keyword.
+     * The only exception is extension methods that requires that
+     * syntax construction. 
+     */
+
     [Serializable]
     [AttributeUsage(AttributeTargets.Class | AttributeTargets.Assembly)]
     [MulticastAttributeUsage(MulticastTargets.Class, Inheritance = MulticastInheritance.Multicast)]

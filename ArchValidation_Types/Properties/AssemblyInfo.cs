@@ -36,6 +36,12 @@ using ArchValidation.NoStaticUsageChecks;
 [assembly: AssemblyVersion("1.0.0.0")]
 [assembly: AssemblyFileVersion("1.0.0.0")]
 
+
+
+// with conditional compilation symbols ones can speedup execution.
+// Aspects can be easily turned on/off
+#if GATEDIN
 // It is possible to use * as wildcard or start the pattern string from regex:
 [assembly: NoStatic(AttributeTargetTypes = "ArchValidation.NoStaticUsageChecks.*")]
 [assembly: NoExplicitOverride(AttributeTargetTypes = "ArchValidation.NHibernate.Entities.*")]
+#endif

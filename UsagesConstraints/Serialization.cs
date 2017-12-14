@@ -4,6 +4,8 @@ using System.Text;
 using System.Xml.Serialization;
 using FluentAssertions;
 using NUnit.Framework;
+using PostSharp.Constraints;
+using PostSharp.Extensibility;
 
 namespace DomainA {
     /*
@@ -26,7 +28,7 @@ namespace DomainA {
          * The Internal keyword wouldn't help to protect ctor
          */
 //        [Protected(Severity = SeverityType.Error)]
-//        public PostCard() { }
+        protected PostCard() { }
     }
 
     public class PostOffice {
